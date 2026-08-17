@@ -87,14 +87,14 @@ while True:
                             cv2.FONT_HERSHEY_SIMPLEX, 1, (0,255,255), 2)
                cv2.putText(frame, f"Slowing in: {remaining}s", (50, 120),
                            cv2.FONT_HERSHEY_SIMPLEX, 0.8, (255,255,0), 2)
-               arduino.write(b'1')   # KEEP NORMAL
+               arduino.write(b'1')   
 
             #while slept
             elif elapsed >= SLEEP_TIME:
                 cv2.putText(frame, "SLEEP DETECTED!", (50, 120),
                             cv2.FONT_HERSHEY_SIMPLEX, 1, (0,0,255), 3)
 
-                arduino.write(b'2')   # SLOW MOTOR + BUZZER
+                arduino.write(b'2')   #motor
             else:
                 sleep_start_time = None
 
