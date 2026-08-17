@@ -4,10 +4,6 @@ import numpy as np
 from scipy.spatial import distance as dist
 from imutils import face_utils
 
-# ===============================
-# FUNCTIONS
-# ===============================
-
 def eye_aspect_ratio(eye):
     A = dist.euclidean(eye[1], eye[5])
     B = dist.euclidean(eye[2], eye[4])
@@ -21,9 +17,7 @@ def mouth_aspect_ratio(mouth):
     D = dist.euclidean(mouth[12], mouth[16])
     return (A + B + C) / (2.0 * D)
 
-# ===============================
 # THRESHOLDS
-# ===============================
 
 EAR_THRESHOLD = 0.25
 EAR_CONSEC_FRAMES = 20
@@ -31,9 +25,7 @@ MAR_THRESHOLD = 0.6
 
 COUNTER = 0
 
-# ===============================
 # LOAD MODELS
-# ===============================
 
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
@@ -42,9 +34,7 @@ predictor = dlib.shape_predictor("shape_predictor_68_face_landmarks.dat")
 (rStart, rEnd) = face_utils.FACIAL_LANDMARKS_IDXS["right_eye"]
 (mStart, mEnd) = face_utils.FACIAL_LANDMARKS_IDXS["mouth"]
 
-# ===============================
 # START CAMERA
-# ===============================
 
 cap = cv2.VideoCapture(0)
 
